@@ -1,0 +1,107 @@
+﻿@model IEnumerable<QlyDienThoai.Models.CartItem>
+@{
+    Layout = "~/Views/Layout/UserLayout.cshtml";
+    ViewBag.Title = "Index";
+}
+<style>
+    td .img {
+        width: 200px;
+        height: 300px;
+    }
+</style>
+
+@if (Model == null)
+{
+    <p class="text-info text-center">
+        Giỏ hàng rỗng
+    </p>
+}
+else
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Madt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tendt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Giaban)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Anhbia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Soluong)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Thanhtien)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Madt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tendt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Giaban)
+                </td>
+                <td>
+                    <img style="width: 200px; height: 300px;" src="@Url.Content("~/Image/"+item.Anhbia)" alt="Alternate Text" />
+                    @*@Html.DisplayFor(modelItem => item.Anh)*@
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Soluong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Thanhtien)
+                </td>
+                @*<td>
+                        @Html.ActionLink("+", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("x", "Delete", new { /* id=item.PrimaryKey */ })
+                    </td>*@
+                <td>
+                    @using (Html.BeginForm("Capnhatgiohang", "ShopingCart",
+                        new { Madt1 = item.Madt }))
+                    {
+                        <input type="hidden" name="Ma" value="@item.Madt" />
+
+                        <input type="number" name="txtsoluong" value="@item.Soluong" />
+
+                        <button type="submit">Cập nhật</button>
+
+                    }
+                </td>
+                <td>@item.Giaban.ToString("# ,##0").Replace(',', ' ') VND </td>
+                <td>
+                    @using (Html.BeginForm("RemoveItem", "ShopingCart",
+                        new { Madt1 = item.Madt }))
+                    {
+                        <button class="btn btn-primary btn-sm">Xoa</button>
+                    }
+                    @*<a href="@Url.Action("RemoveItem", "ShopingCart", new { Ma1 = item.Ma });
+                        onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này?')";
+                        class="btn btn-primary btn-sm">Xóa</a>*@
+                </td>
+                <td></td>
+
+            </tr>
+        }
+        <td class="text-right">Tổng số lượng</td>
+        <td>@Model.Sum(m => m.Soluong) </td>
+        <td class="text-right">Tổng thành tiền</td>
+        <td>@Model.Sum(m => m.Thanhtien).ToString("# , ##0").Replace(',', ' ') VND </td>
+    </table>
+}
+
+<div class="col-xs-12 col-md-6">
+    <a class="btn btn-success" href="@Url.Action("Index" , "Thanhtoan")">Dat hang</a>
+</div>
+

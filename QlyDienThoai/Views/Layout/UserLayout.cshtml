@@ -1,0 +1,80 @@
+﻿
+<!DOCTYPE html>
+<!-- Website template by freewebsitetemplates.com -->
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Nhóm 5</title>
+    <link href="~/Content/cssUserLayout/style.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/CSS/style.css" rel="stylesheet" />
+
+    @* @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")*@
+</head>
+<body>
+    <style>
+        div#Sanpham {
+            float: left;
+            margin: 35px;
+        }
+        div#Sanpham #Anhbia img {
+            width : 200px;
+            height : 300px;
+        }
+
+        div#adbox img {
+            width: 1000px;
+        }
+        body {
+            background: #56b9c3 url(../images/bg-body.jpg) repeat left bottom;
+        }
+    </style>
+    <div>
+        
+    </div>
+    <div id="background">
+        <div id="page">
+            <div id="header">
+                <div id="logo">
+                    <a href="index.html"><img src="~/Image/logo.png" alt="LOGO" height="112" width="118"></a>
+                </div>
+                <div id="navigation">
+                    <ul>
+                        <li class="selected">
+                            <a href="/">Trang chủ</a>
+                        </li>
+                        <li>
+                            <a href="about.html">Giới thiệu</a>
+                        </li>
+                        <li>
+                            <a href="/?Nhasanxuat=NSX1">Iphone</a>
+                        </li>
+                        <li>
+                            <a href="/?Nhasanxuat=NSX2">Samsung</a>
+                        </li>
+                        <li>
+                            <a href="/?Nhasanxuat=NSX3">Huawei</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="contents">
+                <div id="adbox">
+                    <img src="~/Image/banner.jpg" alt="Img">
+                </div>
+
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div>
+            <p>
+                © 2023 by Nhóm 5 . All Rights Reserved
+            </p>
+            
+        </div>
+    </div>
+</body>
+</html>

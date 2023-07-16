@@ -1,0 +1,100 @@
+﻿
+<!DOCTYPE html>
+<!-- Website template by freewebsitetemplates.com -->
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Nhóm 5</title>
+    <link href="~/Content/cssUserLayout/style.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/CSS/style.css" rel="stylesheet" />
+
+    @* @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")*@
+</head>
+<body>
+    <style>
+        #navigation li{
+            /*padding: 0 30px 0 30px ;*/
+            width: 180px
+        }
+        
+        div#Sanpham {
+            float: left;
+            margin: 35px;
+        }
+
+        div#Sanpham #Anhbia img {
+            width: 200px;
+            height: 300px;
+        }
+
+        div #contents #adbox img {
+            width: 1000px;
+        }
+        /*body {
+            background: #56b9c3 url(../images/bg-body.jpg) repeat left bottom;
+        }*/
+    </style>
+    <div>
+    </div>
+    <div id="background">
+        <div id="page">
+            <div id="header">
+                <div id="logo">
+                    <a href="index.html"><img src="~/Image/logo.png" alt="LOGO" height="112" width="118"></a>
+                </div>
+                <div id="navigation">
+                    <ul>
+                        <li style="width : 100px" >
+                            @Html.ActionLink("Trang chủ", "Index", "Home")
+                        </li>
+                        <li >
+                            @Html.ActionLink("Quản lý sản phẩm", "Index", "Dienthoai")
+                        </li>
+                        <li >
+                            @Html.ActionLink("Quản lý khách hàng", "Index", "Khachhang")
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="contents">
+                <div id="adbox">
+                    <img src="~/Image/banner.jpg" alt="Img">
+                </div>
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div>
+            <p>
+                © 2023 by Nhóm 5 . All Rights Reserved
+            </p>
+            @* <ul class="navigation">
+                    <li class="active">
+                        <a href="index.html">Trang chủ</a>
+                    </li>
+                    <li>
+                        <a href="about.html">Giới thiệu</a>
+                    </li>
+                    <li>
+                        <a href="rooms.html">Iphone</a>
+                    </li>
+                    <li>
+                        <a href="dives.html">Samsung</a>
+                    </li>
+                    <li>
+                        <a href="foods.html">Huawei</a>
+                    </li>
+                </ul>
+                <div id="connect">
+                    <a href="http://pinterest.com/fwtemplates/" target="_blank" class="pinterest"></a> <a href="http://freewebsitetemplates.com/go/facebook/" target="_blank" class="facebook"></a> <a href="http://freewebsitetemplates.com/go/twitter/" target="_blank" class="twitter"></a> <a href="http://freewebsitetemplates.com/go/googleplus/" target="_blank" class="googleplus"></a>
+                </div>*@
+        </div>
+        @* @Scripts.Render("~/bundles/jquery")
+            @Scripts.Render("~/bundles/bootstrap")
+            @RenderSection("scripts", required: false)*@
+    </div>
+</body>
+</html>

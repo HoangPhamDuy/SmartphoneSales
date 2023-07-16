@@ -1,0 +1,26 @@
+﻿@model IEnumerable<QlyDienThoai.Models.Dienthoai>
+@{
+    Layout = "~/Views/Layout/UserLayout.cshtml";
+    ViewBag.Title = "Index";
+}
+<h3>Danh mục sản phẩm</h3>
+
+@{ int i = 0;}
+@foreach (var item in Model)
+{
+    i++;
+<div id="Sanpham">
+    <span id="Anhbia">
+        <img src="@Url.Content("~/Image/"+item.Anhbia)" alt="Alternate Text" />
+    </span>
+    <br>
+    <span id="Tendt">@item.Tendt</span>
+    <span id="Giaban">@item.Giaban</span>
+    <div>
+        <a class="btn btn-success" href="@Url.Action("AddToCart", "ShopingCart", new { Madt1 = item.Madt})">Đặt hàng</a>
+    </div>
+</div>
+    if (i % 3 == 0)
+    { <div style="clear:both;"></div>
+    }
+}
